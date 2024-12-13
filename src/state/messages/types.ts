@@ -16,8 +16,8 @@ export interface Channel extends User {
 }
 
 export interface MessengerLayout {
-  users: User[];
-  channels: Channel[];
+  users: { [id: string]: User };
+  channels: { [id: string]: Channel };
 }
 
 export enum MessageActionType {

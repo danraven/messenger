@@ -1,33 +1,37 @@
 import { User, Channel } from "@messenger/state/messages/types";
 
-const users = [
-  {
+const users = {
+  'jdoe': {
     id: 'jdoe',
     displayName: 'John Doe',
+    avatar: 'jdoe.png',
   },
-  {
+  'ckatia': {
     id: 'ckatia',
     displayName: 'Christel Katia',
+    avatar: 'ckatia.png',
   },
-  {
+  'fville': {
     id: 'fville',
     displayName: 'Flora Ville',
+    avatar: 'fville.png',
   },
-  {
+  'vavidan': {
     id: 'vavidan',
     displayName: 'Victor Avidan',
+    avatar: 'vavidan.png',
   },
-] satisfies User[];
+} satisfies { [id: string]: User };
 
-const me = users[0];
+const me = users['jdoe'];
 
-const channels = [
-  {
-    ...users[1],
+const channels = {
+  'ckatia': {
+    ...users['ckatia'],
     messages: [
       {
         timestamp: new Date(2024, 11, 8, 12, 34, 55),
-        senderId: users[1].id,
+        senderId: users['ckatia'].id,
         content: 'Hello!',
         isRead: true,
       },
@@ -39,18 +43,18 @@ const channels = [
       },
       {
         timestamp: new Date(2024, 11, 8, 12, 36, 12),
-        senderId: users[1].id,
+        senderId: users['ckatia'].id,
         content: 'Fancy new app you have here.',
         isRead: true,
       },
     ],
   },
-  {
-    ...users[2],
+  'fville': {
+    ...users['fville'],
     messages: [
       {
         timestamp: new Date(2024, 11, 9, 8, 23, 12),
-        senderId: users[2].id,
+        senderId: users['fville'].id,
         content:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pellentesque, elit ac sodales pellentesque, metus nisl tempor ante, a dignissim eros turpis in dui. Sed at lectus augue. Vestibulum sed velit mauris. Nulla at interdum dui. Morbi eu urna dignissim, tempus justo aliquet, laoreet libero. Suspendisse porta enim est, eu sagittis tellus faucibus sed. Integer faucibus metus sit amet congue pretium.',
         isRead: true,
@@ -64,21 +68,25 @@ const channels = [
       },
       {
         timestamp: new Date(2024, 11, 10, 12, 36, 12),
-        senderId: users[2].id,
+        senderId: users['fville'].id,
         content:
           'Nam eget eros tristique, feugiat tellus non, facilisis tortor. Cras in lacinia velit. Suspendisse dignissim nisl eget dolor hendrerit, in dapibus lectus malesuada. Aliquam mollis ipsum in ligula viverra dignissim. Donec nec ante eget tortor cursus posuere in id dolor. Donec iaculis lorem malesuada nibh tempus, sit amet tincidunt augue sagittis. Aliquam rutrum facilisis ipsum, et malesuada justo viverra ac.',
         isRead: false,
       },
       {
         timestamp: new Date(2024, 11, 10, 15, 55, 31),
-        senderId: users[2].id,
+        senderId: users['fville'].id,
         content:
           'Vestibulum lobortis, lacus in laoreet tincidunt, nisi est posuere ex, et porta magna mauris in turpis. Curabitur quis fermentum velit. Suspendisse blandit erat non lectus varius pellentesque. Proin fermentum pretium neque sed viverra. Vestibulum nunc orci, porttitor eu efficitur ut, congue ut tellus. Sed efficitur dictum eros sed viverra. In ac eleifend libero. Nam ac iaculis nisl, vitae finibus leo.',
         isRead: false,
       },
     ],
   },
-] satisfies Channel[];
+  'vavidan': {
+    ...users['vavidan'],
+    messages: []
+  },
+ } satisfies { [id: string]: Channel };
 
 export default {
   users,

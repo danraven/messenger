@@ -1,11 +1,11 @@
 import { useReducer, createContext, useContext } from 'react';
 import type { FC, ReactNode, ActionDispatch } from 'react';
-import type { Channel, MessageAction } from '@messenger/state/messages/types';
+import type { MessageAction, MessengerLayout } from '@messenger/state/messages/types';
 import fixtures from '@messenger/state/messages/fixtures';
 import messagesReducer from '@messenger/state/messages/reducer';
 
 
-const MessagesContext = createContext<Channel[]>([]);
+const MessagesContext = createContext<MessengerLayout>({ channels: {}, users: {} });
 const DispatchContext = createContext<ActionDispatch<[MessageAction]>>(() => {});
 
 interface Props {
@@ -13,7 +13,10 @@ interface Props {
 }
 
 const MessagesProvider: FC<Props> = ({ children }) => {
-  const [ messages, dispatch ] = useReducer(messagesReducer, fixtures.channels);
+  const [ messages, dispatch ] = useReducer(messagesReducer, {
+    users: fixtures.users,
+    channels: fixtures.channels
+  });
 
   return (
     <MessagesContext.Provider value={messages}>
@@ -24,7 +27,7 @@ const MessagesProvider: FC<Props> = ({ children }) => {
   );
 };
 
-export const useMessages = useContext(MessagesContext);
-export const useDispatch = useContext(DispatchContext);
+export const useMessages = () => useContext(MessagesContext);
+export const useDispatch = () => useContext(DispatchContext);
 
 export default MessagesProvider;

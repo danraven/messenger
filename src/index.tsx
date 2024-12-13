@@ -5,6 +5,7 @@ import { Normalize } from 'styled-normalize';
 import { createGlobalStyle } from 'styled-components';
 import App from '@messenger/layout/App';
 import Channel from '@messenger/layout/Channel';
+import { MessagesProvider } from '@messenger/state/messages';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -23,12 +24,14 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Normalize />
     <GlobalStyle />
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App/>}>
-          <Route path="@:channel" element={<Channel/>}/>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <MessagesProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App/>}>
+            <Route path="@:channel" element={<Channel/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </MessagesProvider>
   </StrictMode>
 );

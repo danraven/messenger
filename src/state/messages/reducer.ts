@@ -1,12 +1,12 @@
 import { produce } from 'immer';
-import { Channel, MessageAction, MessageActionType } from '@messenger/state/messages/types';
+import { MessageAction, MessageActionType, MessengerLayout } from '@messenger/state/messages/types';
+
 
 const messagesReducer = produce(
-  (draft: Channel[], action: MessageAction) => {
+  (draft: MessengerLayout, action: MessageAction) => {
     switch (action.type) {
       case MessageActionType.Add: {
-        const i = draft.findIndex(ch => ch.id === action.channelId);
-        draft[i].messages.push(action.message);
+        draft.channels[action.channelId]?.messages.push(action.message);
         break;
       }
     }
