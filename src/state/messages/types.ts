@@ -6,12 +6,18 @@ export interface User {
 
 export interface Message {
   timestamp: Date;
-  sender: User;
+  senderId: string;
   content: string;
+  isRead: boolean;
 }
 
 export interface Channel extends User {
   messages: Message[];
+}
+
+export interface MessengerLayout {
+  users: User[];
+  channels: Channel[];
 }
 
 export enum MessageActionType {
@@ -22,6 +28,6 @@ export enum MessageActionType {
 
 export interface MessageAction {
   type: MessageActionType;
-  channel: Channel;
+  channelId: string;
   message: Message;
 }

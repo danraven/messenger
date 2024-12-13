@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/danraven/messenger#readme",
   "dependencies": {
+    "dompurify": "^3.2.3",
     "immer": "^10.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
