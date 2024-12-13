@@ -15,7 +15,7 @@ export const ChannelLink = styled(NavLink)`
   }
 
   &:active, &.active {
-    background-color: #6493AA;
+    background-color: #73AAC7;
   }
 
   @media only screen and (max-device-width: 980px) {

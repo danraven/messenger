@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export interface AvatarProps {
-  $hasUnread: boolean;
+  $hasUnread?: boolean;
 }
 
 export const AvatarContainer = styled.div`

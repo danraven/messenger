@@ -21,13 +21,22 @@ export interface MessengerLayout {
 }
 
 export enum MessageActionType {
-  Add = 'ADD',
-  Remove = 'REMOVE',
-  Modify = 'MODIFY'
+  Add = 'MESSAGE_ADD',
+  Remove = 'MESSAGE_REMOVE',
+  Modify = 'MESSAGE_MODIFY'
+}
+
+export enum ChannelActionType {
+  Read = 'CHANNEL_READ'
 }
 
 export interface MessageAction {
   type: MessageActionType;
   channelId: string;
   message: Message;
+}
+
+export interface ChannelAction {
+  type: ChannelActionType;
+  channelId: string;
 }

@@ -15,7 +15,7 @@ const ChannelItem: React.FC<ChannelItemProps> = ({ channel }) => {
   const unreadCount = channel.messages.reduce((sum, current) => sum += +!current.isRead, 0);
 
   return (
-    <ChannelLink to={`/@${channel.id}`}>
+    <ChannelLink to={`/@/${channel.id}`}>
       <AvatarContainer>
         <Avatar $hasUnread={!!unreadCount} src={img(channel.avatar || 'default.png')} />
         <MessageCounter unreadCount={unreadCount} />

@@ -28,7 +28,7 @@ createRoot(document.getElementById('root')!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App/>}>
-            <Route path="@:channel" element={<Channel/>}/>
+            <Route path="/@/:channel" element={<Channel/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
