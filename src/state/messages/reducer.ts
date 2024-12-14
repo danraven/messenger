@@ -10,11 +10,9 @@ const messagesReducer = produce(
         break;
       }
       case ChannelActionType.Read: {
-        draft.channels[action.channelId]!.messages =
-          draft.channels[action.channelId]!.messages.map(msg => ({
-            ...msg,
-            isRead: true
-        }));
+        for (let i = 0; i < draft.channels[action.channelId]!.messages.length; i++) {
+          draft.channels[action.channelId]!.messages[i].isRead = true;
+        }
         break;
       }
     }

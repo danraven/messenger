@@ -17,7 +17,7 @@ const Channel: React.FC = () => {
       type: ChannelActionType.Read,
       channelId: channel.id
     });
-  }, [params.channel]);
+  }, [channel, dispatch]);
 
   return (
     <MessageContainer>
