@@ -15,9 +15,7 @@ const ChannelList: React.FC = () => {
   }, [messages]);
 
   return (
-    <>
-      {channels.map(channel => <ChannelItem key={channel.id} channel={channel} />)}
-    </>
+    channels.map(channel => <ChannelItem key={channel.id} channel={channel} />)
   );
 };
 

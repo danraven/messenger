@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
-import dayjs from 'dayjs';
 import { ChannelActionType, useDispatch, useMessages } from '@messenger/state/messages';
-import { Message, MessageContainer, MessageContent, MessageFooter, MessageGroup } from '@messenger/ui/message';
+import { MessageContainer } from '@messenger/ui/message';
 import fixtures from '@messenger/state/messages/fixtures';
-import MessageAvatar from '@messenger/component/MessageAvatar';
+import ChannelMessage from '@messenger/component/ChannelMessage';
 
 
 const Channel: React.FC = () => {
@@ -23,14 +22,12 @@ const Channel: React.FC = () => {
   return (
     <MessageContainer>
       {channel.messages.map((msg, i) => (
-        <MessageGroup key={i} $rightAlign={msg.senderId === fixtures.me.id}>
-          <MessageAvatar avatar={messages.users[msg.senderId].avatar} display={msg.senderId !== fixtures.me.id} />
-          <Message $isMine={msg.senderId === fixtures.me.id}>
-            <MessageContent>{msg.content}</MessageContent>
-            <MessageFooter>{dayjs(msg.timestamp).format('YYYY-MM-DD HH:mm:ss')}</MessageFooter>
-          </Message>
-          <MessageAvatar avatar={messages.users[msg.senderId].avatar} display={msg.senderId === fixtures.me.id} />
-        </MessageGroup>
+        <ChannelMessage
+          key={i}
+          message={msg}
+          avatar={messages.users[msg.senderId].avatar}
+          isMe={msg.senderId === fixtures.me.id}
+        />
       ))}
     </MessageContainer>
   );
