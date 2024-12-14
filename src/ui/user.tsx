@@ -7,12 +7,15 @@ export interface AvatarProps {
 
 export const AvatarContainer = styled.div`
   position: relative;
+  min-width: 50px;
+  min-height: 50px;
   width: 50px;
   height: 50px;
 `;
 
 export const Avatar = styled.img<AvatarProps>`
   height: 100%;
+  width: 100%;
   box-sizing: border-box;
   border: 1px solid ${({ $hasUnread }) => $hasUnread ? '#C00' : '#555'};
   border-radius: 50%;

@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   display: grid;
   transition: 200ms;
   grid-template-columns: max(20%, 400px) auto;
-  grid-template-rows: auto 3rem;
+  grid-template-rows: auto 3.3rem;
   grid-template-areas:
     "sidebar main"
     "sidebar footer";
@@ -29,9 +29,8 @@ export const Wrapper = styled.div`
 export const Main = styled.main`
   grid-area: main;
   background-color: #FFFFFF;
-  height: calc(100% + 1px);
+  height: 100%;
   padding: 0 2.5rem;
-  position: relative;
   overflow-y: scroll;
 `;
 

@@ -56,3 +56,10 @@ export const MessageFooter = styled.p`
   font-size: 10px;
   color: #474747;
 `;
+
+export const NoMessages = styled.p`
+  text-align: center;
+  color: #474747;
+  font-size: 12px;
+  margin: 2rem 0;
+`;

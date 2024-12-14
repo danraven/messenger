@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { ChannelActionType, useDispatch, useMessages } from '@messenger/state/messages';
-import { MessageContainer } from '@messenger/ui/message';
+import { MessageContainer, NoMessages } from '@messenger/ui/message';
 import fixtures from '@messenger/state/messages/fixtures';
 import ChannelMessage from '@messenger/component/ChannelMessage';
 
@@ -29,6 +29,9 @@ const Channel: React.FC = () => {
           isMe={msg.senderId === fixtures.me.id}
         />
       ))}
+      {!channel.messages.length && (
+        <NoMessages>There are no messages in this channel yet.</NoMessages>
+      )}
     </MessageContainer>
   );
 };
