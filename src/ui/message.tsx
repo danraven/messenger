@@ -13,7 +13,7 @@ export const MessageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 100%;
+  min-height: calc(100% + 1px);
   align-items: stretch;
 `;
 

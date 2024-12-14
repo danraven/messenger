@@ -17,6 +17,7 @@ const Channel: React.FC = () => {
       type: ChannelActionType.Read,
       channelId: channel.id
     });
+    document.scrollingElement?.scroll(0, 1);
   }, [channel, dispatch]);
 
   return (
