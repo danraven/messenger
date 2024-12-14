@@ -36,7 +36,7 @@ export const Button = styled.button`
   }
 `;
 
-export const InputField = styled.input.attrs(_ => ({
+export const InputField = styled.input.attrs(() => ({
   type: 'text'
 }))`
   border: 0 none;

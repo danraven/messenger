@@ -19,7 +19,7 @@ const InputFooter: React.FC = () => {
         content: DOMPurify.sanitize(content),
         isRead: true,
       }
-    })
+    });
   }, [dispatch, params.channel]);
 
   return (

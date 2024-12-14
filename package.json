@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Simple messaging frontend",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

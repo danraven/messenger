@@ -1,6 +1,3 @@
 export * from '@messenger/state/messages/types';
-export {
-  default as MessagesProvider,
-  useMessages,
-  useDispatch
-} from '@messenger/state/messages/provider';
+export { default as MessagesProvider } from '@messenger/state/messages/provider';
+export { useMessages, useDispatch } from '@messenger/state/messages/context';

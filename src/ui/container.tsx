@@ -32,6 +32,15 @@ export const Main = styled.main`
   height: 100%;
   padding: 0 2.5rem;
   overflow-y: scroll;
+
+  & * {
+    overflow-anchor: none;
+  }
+`;
+
+export const OverflowAnchor = styled.div`
+  height: 1px;
+  overflow-anchor: auto;
 `;
 
 export const Sidebar = styled.nav`

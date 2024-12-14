@@ -7,7 +7,7 @@ export interface MessageCounterProps {
 }
 
 const MessageCounter: React.FC<MessageCounterProps> = ({ unreadCount }) => (
-  !!unreadCount ? <UnreadCount>{unreadCount}</UnreadCount> : null
+  unreadCount ? <UnreadCount>{unreadCount}</UnreadCount> : null
 );
 
 export default React.memo(MessageCounter);
