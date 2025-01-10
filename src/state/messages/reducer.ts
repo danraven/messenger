@@ -15,6 +15,10 @@ const messagesReducer = produce(
         }
         break;
       }
+      case ChannelActionType.Draft: {
+        draft.channels[action.channelId]!.draft = action.draft;
+        break;
+      }
     }
   }
 );

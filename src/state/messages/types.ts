@@ -13,6 +13,7 @@ export interface Message {
 
 export interface Channel extends User {
   messages: Message[];
+  draft?: string;
 }
 
 export interface MessengerLayout {
@@ -27,7 +28,8 @@ export enum MessageActionType {
 }
 
 export enum ChannelActionType {
-  Read = 'CHANNEL_READ'
+  Read = 'CHANNEL_READ',
+  Draft = 'CHANNEL_DRAFT',
 }
 
 export interface MessageAction {
@@ -39,4 +41,5 @@ export interface MessageAction {
 export interface ChannelAction {
   type: ChannelActionType;
   channelId: string;
+  draft?: string;
 }
